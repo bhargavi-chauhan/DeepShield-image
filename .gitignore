@@ -1,0 +1,40 @@
+# Python virtual environments
+deepenv/
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dataset folders (large files should not go to GitHub)
+datasets/
+test_dataset/
+data/
+
+# Model weights
+*.pth
+*.pt
+*.onnx
+*.ckpt
+
+# Output files
+outputs/
+runs/
+logs/
+results/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Docker
+*.tar
