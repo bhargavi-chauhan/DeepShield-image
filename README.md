@@ -23,10 +23,13 @@ DeepShield
 ├── datasets/
 │   └── images/
 │       ├── train
-│       ├── val
-│       └── test
+│             ├── fake
+│             ├── real
+│       ├── val (fake & real)
+│       └── test (fake & real)
 │
 ├── models/
+│   ├── image_model.py
 │   ├── best_image_model.pth
 │   ├── final_image_model.pth
 │   └── deepshield_efficientnet.onnx
@@ -40,7 +43,6 @@ DeepShield
 │   ├── preprocess.py
 │   ├── inference.py
 │   ├── multicrop.py
-│   ├── gradcam.py
 │   ├── gradcam_compare.py
 │   └── explainability.py
 │
@@ -52,7 +54,7 @@ DeepShield
 └── requirements.txt
 ```
 
-# ways to run DeepShield: 
+# Ways to run DeepShield: 
 
 ### 🚀 Local Python
 
