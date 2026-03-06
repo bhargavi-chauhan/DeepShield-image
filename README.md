@@ -1,16 +1,22 @@
 # DeepShield-image
 Deep learning system with Explainable AI Framework for Deepfake Detection in images and Media Authenticity.
 
-##📌 Key Features
+## 📌 Key Features
 ✔ Deepfake Image Detection using EfficientNet-B0 CNN backbone
+
 ✔ Grad-CAM Explainability 
+
 ✔ Fake vs Real Heatmap Comparison
+
 ✔ Multi-Crop Consensus Inference 
+
 ✔ ONNX Model Export for fast deployment
+
 ✔ Evaluation Metrics & Visualization
+
 ✔ Docker + NVIDIA GPU Support
 
-##📂 Project Structure
+## 📂 Project Structure
 ```
 DeepShield
 │
@@ -48,7 +54,7 @@ DeepShield
 
 # ways to run DeepShield: 
 
-###🚀 Local Python
+### 🚀 Local Python
 
 Clone the repository:
 ```
@@ -76,7 +82,7 @@ or
 python onnx_inference.py
 ```
 
-###🐳 Docker Support
+### 🐳 Docker Support
 
 DeepShield supports containerized execution using Docker.
 
