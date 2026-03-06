@@ -1,0 +1,17 @@
+# Install required libraries:
+torch 
+torchvision
+numpy
+opencv-python
+matplotlib
+scikit-learn
+pandas
+tqdm
+onnx
+onnxruntime #cpu
+onnxruntime-gpu
+pillow
+
+# --> kagglehub (unless you are downloading dataset locally)
+# --> flask, streamlit (unless app.py is used)
+
