@@ -50,9 +50,9 @@ def main():
     val_dataset   = DeepfakeImageDataset("datasets/images/val", train=False)
     test_dataset  = DeepfakeImageDataset("datasets/images/test", train=False)
 
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=0, pin_memory=True)
-    val_loader   = DataLoader(val_dataset, batch_size=32, shuffle=False, num_workers=0, pin_memory=True)
-    test_loader  = DataLoader(test_dataset, batch_size=32, shuffle=False, num_workers=0, pin_memory=True)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=12, pin_memory=True)
+    val_loader   = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=12, pin_memory=True)
+    test_loader  = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=12, pin_memory=True)
 
     print("Training samples   :", len(train_dataset))
     print("Validation samples :", len(val_dataset))
@@ -342,4 +342,5 @@ def main():
     print(f"✅ ONNX model exported to {onnx_path}")
 
 if __name__ == "__main__":
+
     main()
