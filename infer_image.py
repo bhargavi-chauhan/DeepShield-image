@@ -1,4 +1,5 @@
 import os
+import argparse
 import torch
 from PIL import Image
 from torchvision import transforms
@@ -9,6 +10,15 @@ from utils.explainability import GradCAM, explanation_strength, overlay_heatmap
 from utils.multicrop import multi_crop_inference
 
 # ------------------------------------------------
+# Parse Input Argument
+# ------------------------------------------------
+parser = argparse.ArgumentParser(description="DeepShield Image Inference")
+parser.add_argument("--image", type=str, required=True, help="Path to image file")
+
+args = parser.parse_args()
+img_path = args.image
+
+# ------------------------------------------------
 # Device
 # ------------------------------------------------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -17,7 +27,7 @@ print(f"Using device: {device}")
 # ------------------------------------------------
 # Ensure output folder exists
 # ------------------------------------------------
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/explainability_result", exist_ok=True)
 
 # ------------------------------------------------
 # Load Model
@@ -43,8 +53,6 @@ transform = transforms.Compose([
 # ------------------------------------------------
 # Load Image
 # ------------------------------------------------
-img_path = "test_dataset/images/test_image1.jpg"
-
 if not os.path.exists(img_path):
     raise FileNotFoundError(f"❌ Image not found: {img_path}")
 
@@ -74,7 +82,7 @@ result = predict_authenticity(
 )
 
 # ------------------------------------------------
-# 🔥 Final Decision (Using Multi-Crop Score)
+# 🔥 Final Decision
 # ------------------------------------------------
 if avg_score < 0.5:
     final_label = "FAKE"
@@ -107,12 +115,10 @@ heatmap = gradcam.generate(image_tensor)
 
 strength = explanation_strength(heatmap)
 
-# Weak explanation warning
 if strength < 0.15:
     print("⚠ WARNING: Weak visual evidence detected")
     print("⚠ Prediction reliability is LOW")
 
-# Save GradCAM visualization
 output_path = "outputs/explainability_result/inference_gradcam.jpg"
 
 overlay_heatmap(
