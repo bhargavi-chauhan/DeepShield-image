@@ -1,7 +1,22 @@
+import argparse
 import onnxruntime as ort
 import numpy as np
 from PIL import Image
 from torchvision import transforms
+import os
+
+# =============================
+# Parse Image Argument
+# =============================
+
+parser = argparse.ArgumentParser(description="DeepShield ONNX Inference")
+parser.add_argument("--image", type=str, required=True, help="Path to image file")
+
+args = parser.parse_args()
+img_path = args.image
+
+if not os.path.exists(img_path):
+    raise FileNotFoundError(f"Image not found: {img_path}")
 
 # =============================
 # Load ONNX Model
@@ -21,8 +36,6 @@ transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor()
 ])
-
-img_path = "test_dataset/images/test_image1.jpg"
 
 image = Image.open(img_path).convert("RGB")
 
@@ -60,6 +73,7 @@ confidence = abs(score - 0.5) * 2
 
 print("\n🔍 DeepShield ONNX Prediction")
 print("--------------------------------")
+print(f"Image Path : {img_path}")
 print(f"Score      : {score:.4f}")
 print(f"Prediction : {label}")
 print(f"Confidence : {confidence:.2f}")
