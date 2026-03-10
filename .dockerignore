@@ -1,0 +1,16 @@
+datasets/
+test_dataset/
+outputs/
+*.pth
+*.onnx
+*.data
+deepenv/
+__pycache__/
+.vscode/
+.git
+*.pyc
+*.pkl
+*.h5
+*.pt
+*.log
+node_modules
