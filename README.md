@@ -46,11 +46,17 @@ DeepShield
 │   ├── gradcam_compare.py
 │   └── explainability.py
 │
-├── train_image.py
-├── infer_image.py
-├── onnx_inference.py
+├── training_model/
+|   ├── train_image.py
+|
+├── inference_model/
+|   ├── infer_image.py
+|   └── onnx_inference.py
+|
 ├── Dockerfile
 ├── docker-compose.yml
+├── .dockerignore
+├── .gitignore
 └── requirements.txt
 ```
 
@@ -71,17 +77,17 @@ pip install -r requirements.txt
 
 Training the Model:
 ```
-python train_image.py
+python training_model/train_image.py
 ```
 
 Run prediction on a test image:
 ```
-python infer_image.py --image test_dataset/images/<test_image#>.jpg
+python inference_model/infer_image.py --image test_dataset/images/<test_image#>.jpg
 ```
 or
 
 ```
-python onnx_inference.py --image test_dataset/images/<test_image#>.jpg
+python inference_model/onnx_inference.py --image test_dataset/images/<test_image#>.jpg
 ```
 
 ### 🐳 Docker Support
@@ -98,15 +104,15 @@ docker run --gpus all -it deepshield
 ```
 Inside container:
 ```
-python train_image.py
+python training_model/train_image.py
 ```
 Run prediction on a test image:
 ```
-docker run -it deepshield python infer_image.py --image test_dataset/images/<test_image#>.jpg
+docker run -it deepshield python inference_model/infer_image.py --image test_dataset/images/<test_image#>.jpg
 ```
 or
 ```
-docker run -it deepshield python onnx_inference.py --image test_dataset/images/<test_image#>.jpg
+docker run -it deepshield python inference_model/onnx_inference.py --image test_dataset/images/<test_image#>.jpg
 ```
 
 
