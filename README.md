@@ -82,12 +82,12 @@ python -m training_model.train_image
 
 Run prediction on a test image:
 ```
-python -m inference_model.infer_image.py --image test_dataset/images/<test_image#>.jpg
+python -m inference_model.infer_image.py --image test_dataset/images/<test_image#>.<img_format>
 ```
 or
 
 ```
-python -m inference_model.onnx_inference.py --image test_dataset/images/<test_image#>.jpg
+python -m inference_model.onnx_inference.py --image test_dataset/images/<test_image#>.<img_format>
 ```
 
 ### 🐳 Docker Support
@@ -108,11 +108,11 @@ python -m training_model.train_image
 ```
 Run prediction on a test image:
 ```
-docker run -it deepshield python -m inference_model.infer_image.py --image test_dataset/images/<test_image#>.jpg
+docker run -it deepshield python -m inference_model.infer_image.py --image test_dataset/images/<test_image#>.<img_format>
 ```
 or
 ```
-docker run -it deepshield python -m inference_model.onnx_inference.py --image test_dataset/images/<test_image#>.jpg
+docker run -it deepshield python -m inference_model.onnx_inference.py --image test_dataset/images/<test_image#>.<img_format>
 ```
 
 
