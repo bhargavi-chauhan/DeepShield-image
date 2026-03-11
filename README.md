@@ -77,7 +77,7 @@ pip install -r requirements.txt
 
 Training the Model:
 ```
-python -m training_model.train_image
+python -m training_model.train_image --data_dir datasets/images
 ```
 
 Run prediction on a test image:
@@ -104,7 +104,7 @@ docker run --gpus all -it deepshield
 ```
 Inside container:
 ```
-python -m training_model.train_image
+python -m training_model.train_image --data_dir /workspace/datasets/images
 ```
 Run prediction on a test image:
 ```
