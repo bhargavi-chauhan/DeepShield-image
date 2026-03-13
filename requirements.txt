@@ -8,6 +8,7 @@ scikit-learn
 pandas
 tqdm
 onnx
+grad-cam
 onnxruntime #cpu
 onnxruntime-gpu
 pillow
