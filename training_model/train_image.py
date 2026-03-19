@@ -50,7 +50,7 @@ print("Using device:", device)
 
 if device.type == "cuda":
     BATCH_SIZE = 32
-    NUM_WORKERS = 4
+    NUM_WORKERS = 0
     PIN_MEMORY = True
     AMP = True
 else:
